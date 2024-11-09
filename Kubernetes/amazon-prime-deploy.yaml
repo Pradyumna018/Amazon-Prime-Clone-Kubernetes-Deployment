@@ -3,23 +3,23 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: prime-deploy
-  name: prime-deploy
+    app: amazon-prime-deploy
+  name: amazon-prime-deploy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: prime-deploy
+      app: amazon-prime-deploy
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: prime-deploy
+        app: amazon-prime-deploy
     spec:
       containers:
-      - image: fir3eye/prime-clone:latest
-        name: prime
+      - image: pradyumnam/amazon-prime-clone:v1
+        name: amazon-prime-clone
         ports:
         - containerPort: 80
         resources: {}

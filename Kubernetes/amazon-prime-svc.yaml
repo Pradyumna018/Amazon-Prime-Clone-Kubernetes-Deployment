@@ -3,15 +3,15 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: prime-deploy
-  name: prime-svc
+    app: amazon-prime-deploy
+  name: amazon-prime-svc
 spec:
   ports:
   - port: 80
     protocol: TCP
     targetPort: 80
   selector:
-    app: prime-deploy
+    app: amazon-prime-deploy
   type: NodePort
 status:
   loadBalancer: {}

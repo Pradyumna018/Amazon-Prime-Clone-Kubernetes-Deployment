@@ -1,13 +1,32 @@
 ## Create Deployment and Service using Imperative method
 ### Deployment
 ```
-kubectl create deployment prime-deploy --port=80 --dry-run=client -o yaml > prime-deploy.yaml
+apt install bat -y
+```
+```
+kubectl create deploy amazon-prime-deploy --image==pradyumnam/amazon-prime-clone:v1 --port=80 --dry-run=client -o yaml > amazon-prime-deploy.yaml
+
+```
+```
+kubectl apply -f amazon-prime-deploy.yaml
+```
+```
+kubectl get deploy
 ```
 ### Expose Service
 ```
-kubectl expose prime-deploy --type=NodePort --port=80 --target-port=80 --name=prime-svc --dry-run=client -o yaml > prime-svc.yaml
+kubectl expose deploy amazon-prime-deploy --type=NodePort --port=80 --target-port=80 --name=amazon-prime-svc --dry-run=client -o yaml > amazon-prime-svc.yaml
 ```
-
+```
+kubectl apply -f amazon-prime-svc.yaml
+```
+```
+kubectl get svc
+```
+### Port Forwarding
+```
+kubectl port-forward svc/amazon-prime-svc.yaml 80:80
+```
 ---
 ### Installation Instruction For EKS
 - Install AWS CLI
